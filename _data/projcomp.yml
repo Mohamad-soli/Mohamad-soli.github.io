@@ -1,0 +1,78 @@
+- name: Design and Optimization of Cooling Channel using PINN and Deep Gaussian Process
+  id: Design and Optimization of Cooling Channel using PINN and Deep Gaussian Process
+  description: >
+    In this project, we aimed to design and optimize a cooling channel featuring a circular obstruction 
+    using a Physics-Informed Neural Network (PINN). For the optimization process, we employed a Deep
+    Gaussian Process. The results were satisfactory when compared to Computational Fluid Dynamics 
+    (CFD) simulations.   
+  date: true
+  link: /mc/Pinnh.html
+  image:  /assets/img/posts/projects/u_real_0.6.png
+  tech: 
+    - Python(PyTorch)
+
+- name: Comparative Analysis of 3D Heat Transfer Modeling Using FEniCS and Physics-Informed Neural Networks (PINNs)
+  id: 
+  description: >
+    In this study, first the 3D heat transfer problem is solved with FEniCS.
+    Afterwards, the temperature data on the domain is used as ground truth
+    data for a Physics-Informed Neural Network (PINN). A comparison is
+    made between the PINN and FEniCS data to evaluate the accuracy of the PINN model.
+  date: true
+  link: /mc/pinnthree.html
+  image: /assets/img/posts/projects/pinnthree_1.png
+  tech: 
+    - Python
+    - FEniCS
+
+- name: Comparative Analysis of 3D Heat Transfer Modeling Using FEniCS and Physics-Informed Neural Networks (PINNs)
+  id: 
+  description: >
+    In this study, first the 3D heat transfer problem is solved with FEniCS.
+    Afterwards, the temperature data on the domain is used as ground truth
+    data for a Physics-Informed Neural Network (PINN). A comparison is
+    made between the PINN and FEniCS data to evaluate the accuracy of the PINN model.
+  date: true
+  link: /mc/twod.html
+  image: /assets/img/posts/projects/twod_2_mini.png
+  tech: 
+    - Python
+    - FEniCS
+
+- name: Particle Image Velocimetry Report
+  id: Particle Image Velocimetry Report
+  description: >
+    In this project, I explored the application of Particle Image Velocimetry (PIV) to analyze velocity fields
+    within fluid systems. By conducting experiments such as free convection and jet flow, I demonstrated
+    how Python-based PIV can effectively measure particle displacement and compared the results with
+    commercial PIV software for validation.
+  date: true
+  link: /mc/piv.html
+  image: /assets/img/posts/projects/piv_1_1.png
+  tech: 
+    - Python
+
+
+- name: One Color LIF Method for Temperature Measurement
+  id: 
+  description: >
+    In this project, we utilized the one-color Laser-Induced Fluorescence (LIF) method to measure the 
+    temperature of a fluid by analyzing the temperature-dependent fluorescence intensity emitted by
+    hRhodamine B particles. Through controlled experiments involving laser excitation and image capture,
+    we developed a calibration curve that allowed us to accurately map the temperature distribution 
+    within the fluid.
+  date: true
+  link: /mc/lif.html
+  image: /assets/img/posts/projects/lif_2.png
+  tech: 
+    - Python
+
+- name: Gaussian Process 
+  id: 
+  description: >
+    This project focuses on developing and optimizing Gaussian Process (GP) models as surrogate models for complex functions. By leveraging the flexibility of GP models, the project aims to enhance the efficiency of optimization tasks, particularly in scenarios with limited data.
+  date: true
+  link: /mc/gp.html
+  image: /assets/img/posts/projects/gp_1.png
+  tech: 
+    - Python

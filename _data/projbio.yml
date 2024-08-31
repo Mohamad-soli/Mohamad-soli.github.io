@@ -1,0 +1,67 @@
+- name: Development and Manufacturing of the First Multi-Channel Real-Time PCR System in Iran
+  id: Development and Manufacturing of the First Multi-Channel Real-Time PCR System in Iran
+  description: >
+    I was privileged to be a member of the engineering team for this national project. My primary 
+    responsibilities involved the heating and cooling system, and my programming skills allowed me 
+    to contribute significantly to the software development.
+  date: true
+  link: /mc/pcr.html
+  image: /assets/img/posts/projects/PCR_1.jpg
+  #image: /assets/img/posts/projects/micro_2.jpg
+  tech:
+    - Comsol
+    - Raspberry pi 
+    - Arduino
+    - OpenCv
+    - PyQt
+
+- name: Passive particle separation using an omega-shaped serpentine channel
+  id: Passive particle separation using an omega-shaped serpentine channel
+  description: >
+    This study presents an omega-shaped microfluidic device designed for passive, label-free CTC 
+    separation. It employs numerical simulations, experimental validation, and surrogate modeling to 
+    optimize the design and performance of the device.
+  date: true
+  link: /mc/micro.html
+  image: /assets/img/posts/projects/micro_1.jpg
+  #image: /assets/img/posts/projects/micro_2.jpg
+  tech: 
+    - Comsol
+    - Python
+    - Matlab
+    - Cell Culture
+    - Microfabrication
+
+- name: Bi-layered Vascular Graft Project
+  id: Bi-layered Vascular Graft Project
+  description: >
+    In this project, we aimed to fabricate and characterize a bi-layered vascular graft with enhanced mechanical properties and biocompatibility. This project involved a combination of advanced techniques including electrospinning, cell culturing, and mechanical testing to ensure the graft's performance in clinical applications.
+  date: true
+  link: /mc/tissue.html
+  image: /assets/img/posts/projects/tissue_head.jpg
+  tech: 
+    - Cell culturing
+    - Electrospinning
+    - Silk fibroin extraction
+
+- name: Novel Geometry for Separating
+  id: 
+  description: >
+    In this research, we present a novel  microfluidic device designed for the passive separation of circulating tumor cells (CTCs) from blood samples.
+    
+  date: true
+  link: /mc/separation.html
+  image: /assets/img/posts/projects/bifurcation_2.png
+  tech: 
+    - comsol
+
+- name: Designing, Optimizing, and Fabricating a Heating Block
+  id: Designing, Optimizing, and Fabricating a Heating Block
+  description: >
+    In this project, an aluminum block was designed to increase the heating rate and improve 
+    temperature uniformity in a real-time PCR device.
+  date: true
+  link: /mc/hblock.html
+  image: /assets/img/posts/projects/Heat_1.jpg
+  tech: 
+    - Comsol

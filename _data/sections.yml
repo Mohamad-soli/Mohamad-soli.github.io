@@ -1,0 +1,14 @@
+- name: Biomedical
+  id: Biomedical
+  description: Here are some of the projects that have guided my journey into biomedical engineering.
+  content: 
+  url: projects.html
+  first: true
+
+# - name: Computational
+#   id: Computational
+#   description: Here are some of the projects that have guided my journey into computational mechanics.
+#   content: 
+#   url: projects.html
+#   first: false
+
