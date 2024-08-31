@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>L-BFGS Method</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/blogs.css" type="text/css" charset="utf-8" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+<h1>L-BFGS Method</h1>
+<h2>What is L-BFGS</h2>
+<p>
+    <ul>
+        <li>Member of the quasi-newton methods family</li>
+        <li>It is a whole batch optimization method</li>
+        <li>The memory limited version of BFGS</li>
+        <li>It is a method of approximating the hessian matrix</li>
+        <li>The BFGS stores an nxn Hessian matrix</li>
+        <li>L-BFGS stores only a few vectors</li>
+        <li>Well suited for optimizations with many variables</li>
+    </ul>
+</p>
+<div class="figure">
+    <img width="437" height="355" alt="figure of inventors of BFGS"
+    src="./bfgs.jpeg" />
+    <p>Figure 1: Broyden, Fletcher, Goldfarb and Shanno from left to right.</p>
+  </div>
+<h2>How to use it?</h2>
+Here we are going to use an implementation of L-BFGS in PyTorch to minimize the Rosenbrock function.
+<h3>What is Rosenbrock function?</h3>
+<p><a href="https://en.wikipedia.org/wiki/Rosenbrock_function">Rosenbrock function</a> is a non-convex function which its' global minima is
+    inside a long narrow valley which is trivial to find, but converging to 
+    the global minima inside that valley is a difficault task.
+    \[f(x,y) = b(y-x^2)^2 + (a-x)^2\]
+    where \(a\) and \(b\) are constants.
+    The global minima is at \((a,a^2)\).
+    It is mostly used as a <a href="https://en.wikipedia.org/wiki/Test_functions_for_optimization">benchmark for optimization algorithms</a>.
+</p>
+<div class="figure">
+    <img width="437" height="355" alt="a contour plot of the Rosenbrock function"
+    src="./rosenbrock.png" />
+    <p>Figure 2: Rosenbrock function</p>
+  </div>
+<h3>What is a closure function?</h3>
+<p>
+    Some Optimizers in PyTorch such as Conjugate Gradient and LBFGS require a closure function to be passed to them.
+    A closure function is a function that at first clears the gradients,
+    computes the loss, 
+    and reevaluates the function.
+</p>
+<pre>
+    <code>
+        def closure():
+            optimizer.zero_grad()
+            loss.backward()
+            return loss.item()
+    </code>
+</pre>
+<h3>Define a custom function in PyTorch</h3>
+<p>In order to be able to use the optimizers implemented in pytorch to 
+    minimize a function, we have to redefine that function as a class like 
+    we do for different Neural Networks in PyTorch.
+    <pre>
+        <code>
+class Rosenbrock(nn.Module):
+    def __init__(self, a, b):
+        super(Rosenbrock, self).__init__()
+        # Initializing the Rosenbrock function
+        self.a = a
+        self.b = b
+        # Optimization parameters are randomly initialized and
+        # defined to be a nn.Parameter object.
+        self.x = torch.nn.Parameter(torch.Tensor([-1.0]))
+        self.y = torch.nn.Parameter(torch.Tensor([2.0]))
+
+    def forward(self,):
+        # Here is the function that is being optimized
+        return (self.x - self.a) ** 2 + self.b * (self.y - self.x ** 2) ** 2
+        </code>
+    </pre>
+    Note the difference between how we define constants and optimization variables.
+    Then the optimizer can be initialized like this:
+    <pre>
+        <code>
+optimizer = torch.optim.LBFGS(model.parameters(), lr=0.1, max_iter=5000)
+        </code>
+    </pre>
+Here is the gif of the convergence steps:
+    <div class="figure">
+        <img width="437" height="355" alt="convergence animation"
+        src="./convergence.gif" />
+        <p>Figure 3: Convergence Steps (wait for it)</p>
+      </div> 
+you can find all the related codes inside this <a href="https://github.com/erfanhamdi/erfanhamdi.github.io/blob/main/blog_posts/l-bfgs/l-bfgs.py">github repository</a>.
+</p>
+</body>
+</html>

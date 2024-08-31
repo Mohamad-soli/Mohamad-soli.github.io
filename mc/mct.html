@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Monte Carlo Simulation Methoods</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/mc/styles/blogs.css" type="text/css" charset="utf-8" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+<h1>Monte Carlo Simulation Methoods</h1>
+<h2>Estimating Pi number using MC</h2>
+<p>
+    Hello beatiful, very gorgeous!!!!!!!!
+</p>
+<div class="figure">
+    <img width="400" height="300" alt="a circle within a square"
+    src="./figs/square_circle.png" />
+    <p>Figure 1: A circle within a square</p>
+  </div>
+<p>
+    So now we have to simulate the dart throwing process. We can do that by generating random coordinates within the boundaries of the square 
+    
+<pre>
+    <code>
+        no_of_points = 1_000_000
+        x = np.random.uniform(-1, 1, no_of_points)
+        y = np.random.uniform(-1, 1, no_of_points)
+    </code>
+</pre>
+    Then we can check if the coordinate is inside the circle or not. If it is, we count it as a hit.
+<pre>
+    <code>
+        inside = x**2 + y**2 <= 1
+        no_of_hits = np.sum(inside)
+    </code>
+</pre>
+    Then we calculate the ratio of the darts falling within the circle to the total number of darts. And multiply it by 4 to get an estimate for \(\pi\).
+<pre>
+    <code>
+        pi = 4 * no_of_hits / no_of_points
+    </code>
+</pre>
+</p>
+<div class="figure">
+    <img width="400" height="300" alt="lots of points with different colors inside the circle and outside the circle"
+    src="./figs/darts_flying.png" />
+    <p>Figure 2: Darts Flying!</p>
+  </div>
+<p>Here we have used 1,000,000 points and it gave an estimation of 3.144. Not bad!
+</p>
+</body>
+</html>

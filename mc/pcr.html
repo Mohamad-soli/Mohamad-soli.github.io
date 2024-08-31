@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Multi-Channel Real-Time PCR System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/mc/styles/blogs.css" type="text/css" charset="utf-8" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+
+<h1>Multi-Channel Real-Time PCR System</h1>
+
+<h2>Project Overview</h2>
+<p>This project marks the first effort in Iran to develop a multi-channel real-time PCR system. My master's thesis, <em>"Optimizing the Temperature Changes of the Heating Cycle in Real-Time PCR,"</em> focuses on improving the device's heating and cooling systems. The PCR method involves a thermal cycle that operates between 65 to 95 degrees Celsius. Below is a picture of the device.</p>
+
+<div class="figure">
+    <img width="400" height="520" src="/assets/img/posts/projects/pcr_2.jpg" alt="Multi-Channel Real-Time PCR Device" width="600" height="400">
+    <p>Figure 1: Multi-Channel Real-Time PCR Device</p>
+</div>
+
+<h2>Graphical User Interface (GUI)</h2>
+<p>This device requires a graphical user interface (GUI) for user interaction. I developed its GUI using the PyQt5 library in Python. Below is a short video demonstrating its functionality.</p>
+
+<div class="video">
+    <video controls width="600">
+        <source src="/assets/img/posts/projects/pcr_3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <p>Video 1: GUI Demonstration</p>
+</div>
+
+<h2>Image Processing and Thermal Cycle Control</h2>
+<p>To control the device's thermal cycle, we utilized an Arduino Uno board connected to a Raspberry Pi. The images captured by the Raspberry Pi were processed using the OpenCV library in Python. Below is an example of a processed image.</p>
+
+<div class="figure">
+    <img src="/assets/img/posts/projects/pcr_4.jpg" alt="Processed Image using OpenCV" width="600" height="400">
+    <p>Figure 2: Processed Image using OpenCV</p>
+</div>
+
+<h2>Real-Time Monitoring of PCR Amplification Using Fluorescent Detection</h2>
+<p>As the DNA molecules replicate, they emit fluorescent light, thanks to the inclusion of fluorescent dyes in the reaction mixture. This fluorescence signals successful DNA amplification. We use a Raspberry Pi camera to detect and measure the intensity of this light, enabling real-time monitoring of the PCR process. In the following GIF, you can observe the DNA duplication in our system using a green filter.</p>
+
+<div class="figure">
+    <img src="/assets/img/posts/projects/green-gif.gif" alt="HPV Virus Duplication Process Across 30 Thermal Cycles" width="600" height="400">
+    <p>Figure 3: HPV Virus Duplication Process Across 30 Thermal Cycles</p>
+</div>
+
+</body>
+</html>

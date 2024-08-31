@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Omega-Shaped Microfluidic Device for CTC Separation</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/mc/styles/blogs.css" type="text/css" charset="utf-8" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+<h1>Omega-Shaped Microfluidic Device for CTC Separation</h1>
+
+<h2>Introduction</h2>
+<p>
+In this research, we present a novel omega-shaped microfluidic device designed for the passive separation of circulating tumor cells (CTCs) from blood samples. The separation of CTCs is critical for understanding cancer progression and enhancing early diagnosis, as these cells play a pivotal role in metastasis and disease spread. Traditional methods for CTC separation can be categorized into active and passive techniques. Active methods employ external forces such as electrical, magnetic, acoustic, and optical forces, while passive methods rely on channel geometry and fluid dynamics to achieve separation. Passive separation is particularly appealing for its simplicity and potential for miniaturization, making it suitable for lab-on-a-chip applications.
+</p>
+
+<div class="figure">
+    <img width="400" height="300" src="/assets/img/posts/projects/micro_1.jpg" alt="Diagram of fabricated microfluid chip" width="600" height="400">
+    <p>Figure 1: Diagram of fabricated microfluid chip</p>
+</div>
+
+<h2>Materials and Methods</h2>
+
+<h3>Microfluidic Chip Design and Fabrication</h3>
+<p>
+The microfluidic device was designed with an omega-shaped serpentine channel comprising seven stages. Each stage mimics the Greek letter Omega (Ω) to enhance fluid dynamics for cell separation. The channel was fabricated using photolithography techniques, with polydimethylsiloxane (PDMS) employed for the chip material. The device was bonded to a glass slide to ensure experimental reproducibility.
+</p>
+
+<h3>Cell Culture and Sample Preparation</h3>
+<p>
+MCF-7 breast cancer cells were selected as target cells, while white blood cells (WBCs) and red blood cells (RBCs) were used as non-target particles. The cells were cultured under standard conditions using DMEM/F12 medium supplemented with 10% fetal bovine serum (FBS) and 1% penicillin/streptomycin. Blood samples were diluted with phosphate-buffered saline (PBS) and subjected to density gradient centrifugation for component separation. Cells were fluorescently labeled with DAPI to facilitate visualization and quantification.
+</p>
+
+<h3>Experimental Setup</h3>
+<p>
+The experimental setup consisted of a fluorescence microscope, syringe pumps for sample injection, and imaging equipment to capture separation outcomes. The samples were introduced into the microfluidic device at varying flow rates, and cell separation efficiency was assessed based on recovery rate and purity.
+</p>
+
+<div class="figure">
+    <img width="400" height="300" src="/assets/img/posts/projects/micro_3.jpg" alt=" Schematic of the principle of target cell separation. (a) Fabricated microfluidic chip and location of samples, inlets, and outlets. (b) particle movement in the Omega channel." width="600" height="400">
+    <p>Figure 2. Schematic of the principle of target cell separation. (a) Fabricated microfluidic chip and location of samples, inlets, and outlets. (b) particle movement in the Omega channel.</p>
+</div>
+
+<h2>Numerical Method</h2>
+
+<h3>Governing Equations and Simulation</h3>
+<p>
+Fluid dynamics within the microfluidic channel were modeled using the Navier-Stokes equations, considering the fluid as incompressible and Newtonian. A three-dimensional finite element method (FEM) was employed to solve the equations governing fluid flow and particle motion. Numerical simulations focused on optimizing channel configurations for enhanced separation efficiency.
+</p>
+
+<h2>Gaussian Process Optimization Method</h2>
+<p>
+Surrogate modeling was employed to investigate key parameters affecting cell separation, including cell diameter and aspect ratio. Gaussian process regression (GPR) and radial basis function (RBF) kernels were used to predict separation efficiency and purity, providing confidence intervals to assess prediction reliability.
+</p>
+
+<h2>Conclusion</h2>
+<p>
+In this research, we introduce an omega-shaped microfluidic device for passive CTC separation, combining numerical simulations, experimental validation, and AI-based modeling. The device demonstrates high recovery and purity rates, with surrogate modeling effectively optimizing critical parameters. Future research should focus on increasing the number of omega channels and incorporating external forces to further enhance separation efficiency and applicability in clinical settings.
+</p>
+
+<p>
+As we are preparing this research for publication, if you require more information or have specific questions, please feel free to contact me via email. I would be happy to provide further insights or details regarding our findings and methodology.
+</p>
+
+</body>
+</html>

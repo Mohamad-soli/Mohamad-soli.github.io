@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Optimization of the Real-Time PCR Heating System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/mc/styles/blogs.css" type="text/css" charset="utf-8" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+
+<h1>Optimization of the Real-Time PCR Heating System</h1>
+
+<h2>Introduction</h2>
+<p>
+    In this project, the heating system in a real-time PCR (Polymerase Chain Reaction) device was optimized to enhance performance. Initially, the system's heating rate was 1°C per second, which was insufficient for optimal operation. To address this, wire heating elements were proposed due to their ability to deliver high thermal power, flexibility in geometric design, and rapid thermal response upon current application.
+</p>
+
+<h2>Design and Power Requirements</h2>
+<p>
+    Calculations indicated that the process required approximately 150 watts of thermal power. This requirement could be met with heating elements offering a resistance of one ohm per meter. The chosen wire heating elements were selected based on their capacity to efficiently deliver the necessary thermal power and their adaptability to various geometric configurations.
+</p>
+
+<h2>Proposed Design and Simulation</h2>
+
+<h3>First Design Proposal</h3>
+<p>
+    In the initial design proposal, the distance between the thermal channels was set at 250 micrometers. The thermal channels are the pathways within which the heating elements are placed. The primary reason for selecting this dimension was to maximize the contact surface area relative to the block volume, thereby enhancing heat distribution efficiency.
+</p>
+
+<ul>
+    <li><strong>Thermal Power:</strong> The simulation was conducted with the thermal channels operating at 150 watts.</li>
+    <li><strong>Heat Transfer Conditions:</strong> The vials within the block were subject to natural heat transfer with air, with a convection coefficient set at 10.</li>
+    <li><strong>Insulation:</strong> Insulation was applied around and beneath the block to minimize heat loss.</li>
+    <li><strong>Mesh Independence:</strong> The simulation achieved convergence in the final solution through the application of a fine mesh, ensuring accuracy and reliability in the results.</li>
+</ul>
+
+<h3>Simulation Results</h3>
+<p>
+    <strong>Temperature Gradient:</strong> As shown in Figure 1, the temperature gradient within the block is approximately 0.8°C. In the plane intersecting the ends of the vials, the gradient is reduced to about 0.2°C. 
+</p>
+<p>
+    <strong>Design Suitability:</strong> The minimal temperature gradient in the critical plane passing through the vial ends indicates that the design effectively minimizes thermal variation, which is crucial for the uniformity of the PCR process.
+</p>
+
+<div class="figure">
+    <img width="500" height="200" src="/assets/img/posts/projects/Heat_block_1.jpg" alt="Simulation Result">
+    <p>Figure 1: Temperature Gradient Simulation Result</p>
+</div>
+
+<h2>Fabrication of the Heating Block</h2>
+<p>
+    Based on the simulation results, the first design was selected for implementation due to its efficiency in maintaining a low temperature gradient across the critical areas of the PCR block. An aluminum block was fabricated using machining techniques to realize this design in practice.
+</p>
+
+<div class="figure">
+    <img width="400" height="300" src="/assets/img/posts/projects/Heat_block_2.jpg" alt="Fabricated Aluminum Block">
+    <p>Figure 2: Fabricated Aluminum Block</p>
+</div>
+
+<p>
+    This optimization has resulted in a more efficient and reliable heating system for real-time PCR, ensuring improved performance and consistency in results.
+</p>
+
+</body>
+</html>

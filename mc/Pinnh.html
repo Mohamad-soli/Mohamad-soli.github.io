@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Design and Optimization of Cooling Channel using PINN and Deep Gaussian</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/mc/styles/blogs.css" type="text/css" charset="utf-8" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+<h1>Design and Optimization of Cooling Channel using PINN and Deep Gaussian</h1>
+<p>
+    In this study, the PINN (Physics-Informed Neural Network) methodology is used to create steady-state surrogate models for incompressible laminar flow with heat transfer in a 2D internal domain that includes obstructions. These obstructions, which are circular cylinders, are used to enhance heat transfer in the channel. Automatic spatial and temporal differentiation is applied to the partial differential equations governing mass momentum and energy conservation, with the residuals included in the loss function along with the boundary and initial conditions. The results show a good match between the PINN and CFD (Computational Fluid Dynamics) simulations for both steady-state and transient scenarios, but normalizing the PDEs is essential.
+</p>
+<h2>Governing Equations</h2>
+<p>
+    First, nondimensionalized variables are introduced:
+    \[
+    \begin{align*}
+    X^* &= \frac{X}{L}, \quad Y^* = \frac{Y}{L}, \quad u^* = \frac{u}{u_\infty}, \quad V^* = \frac{V}{u_\infty}, \\
+    p^* &= \frac{p}{\rho u_\infty^2}, \quad T^* = \frac{T}{T_\infty}, \quad t^* = \frac{t}{\tau} \tag{1}
+    \end{align*}
+    \]
+</p>
+<p>
+    The nondimensionalized momentum equation is defined as follows:
+    \[
+    \frac{\partial u^*}{\partial t^*} + u^*\frac{\partial u^*}{\partial X^*} + V^*\frac{\partial u^*}{\partial Y^*} = \frac{\partial \sigma_{11}^*}{\partial X^*} + \frac{\partial \sigma_{12}^*}{\partial Y^*} \tag{2}
+    \]
+
+    \[
+    \frac{\partial V^*}{\partial t^*} + u^*\frac{\partial V^*}{\partial X^*} + V^*\frac{\partial V^*}{\partial Y^*} = \frac{\partial \sigma_{12}^*}{\partial X^*} + \frac{\partial \sigma_{22}^*}{\partial Y^*} \tag{3}
+    \]
+
+    \[
+    \sigma_{11}^* = \frac{\sigma_{11}}{\rho u_\infty^2} = - p^* + \frac{2}{Re}\frac{\partial u^*}{\partial X^*} \tag{4}
+    \]
+
+    \[
+    \sigma_{22}^* = \frac{\sigma_{22}}{\rho u_\infty^2} = - p^* + \frac{2}{Re}\frac{\partial V^*}{\partial Y^*} \tag{5}
+    \]
+
+    \[
+    \sigma_{12}^* = \frac{\sigma_{12}}{\rho u_\infty^2} = \frac{1}{Re}\left(\frac{\partial u^*}{\partial X^*} + \frac{\partial V^*}{\partial Y^*}\right) \tag{6}
+    \]
+
+    \[
+    p^* = -\frac{\sigma_{11}^* + \sigma_{22}^*}{2} \tag{7}
+    \]
+</p>
+<p>
+    The nondimensionalized energy equation is defined as follows:
+    \[
+    \frac{\partial T^*}{\partial t^*} + u^*\frac{\partial T^*}{\partial X^*} + V^*\frac{\partial T^*}{\partial Y^*} = \frac{1}{RePr}\left(\frac{\partial q_X^*}{\partial X^*} + \frac{\partial q_Y^*}{\partial Y^*}\right) \tag{8}
+    \]
+
+    \[
+    q_X^* = \frac{q_X}{\lambda T_\infty L} = \frac{\partial T^*}{\partial X^*} \tag{9}
+    \]
+
+    \[
+    q_Y^* = \frac{q_Y}{\lambda T_\infty L} = \frac{\partial T^*}{\partial Y^*} \tag{10}
+    \]
+</p>
+<p>
+    We implemented these equations in a multilayer perceptron (MLP) structure using loss functions. By defining the problem's domain, we trained the network applying boundary conditions to guide the training process. This approach yielded excellent results.
+</p>
+<p>
+    For example, the following figures show a comparison between the PINN and CFD results for one section.
+</p>
+<div class="figure">
+    <img width="400" height="300" alt="Comparison of Velocity in X direction in one cross section" src="/assets/img/posts/projects/u_real_0.6_third.png" />
+    <p>Figure 1: Comparison of Velocity in X direction in one cross section</p>
+</div>
+<div class="figure">
+    <img width="400" height="300" alt="Comparison of Temperature in one cross section" src="/assets/img/posts/projects/T_real_0.6_thr.png" />
+    <p>Figure 2: Comparison of Temperature in one cross section</p>
+</div>
+<div class="figure">
+    <img width="400" height="300" alt="Comparison of Pressure in one cross section" src="/assets/img/posts/projects/p_real_0.6_thr.png" />
+    <p>Figure 3: Comparison of Pressure in one cross section</p>
+</div>
+<p>
+    As we are preparing this research for publication, if you require more information or have specific questions, please feel free to contact me via email. I would be happy to provide further insights or details regarding our findings and methodology.
+</p>
+</body>
+</html>

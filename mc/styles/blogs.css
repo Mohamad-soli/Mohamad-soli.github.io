@@ -1,0 +1,189 @@
+html
+{
+    padding: 0;
+    margin: 0;
+}
+
+body
+{
+    background: white;
+    margin: 1em auto;
+    max-width: 68ex;
+    text-align: justify;
+    font-family: "Georgia", serif;
+    line-height: 130%;
+}
+
+#footer
+{
+    border-top: 1px solid #A0A0A0;
+    padding-top: 0.25em;
+    font-size: small;
+}
+
+h1
+{
+    text-align: center;
+    margin-bottom: 3ex;
+}
+
+h1, h2, h3, h4
+{
+    line-height: 100%;
+    font-family: "Times New Roman", serif;
+}
+
+p
+{
+    margin: 0.83em 0 0 0;
+}
+
+p + p
+{
+    margin-top: 0;
+    text-indent: 1.5em;
+}
+
+p:last-of-type
+{
+    margin-bottom: 0.83em;
+}
+
+blockquote > p:lang(en)
+{
+    quotes: "Â«" "Â»" "'" "'";
+}
+
+blockquote > p:first-child:before
+{
+    content: open-quote;
+}
+
+blockquote > p:last-child:after
+{
+    content: close-quote;
+}
+
+cite
+{
+    font-style: normal;
+}
+
+cite:before
+{
+    content: "[";
+}
+
+cite:after
+{
+    content: "]";
+}
+
+dl dd
+{
+   margin-left: 2em;
+}
+
+dl.inline
+{
+   margin: 0;
+}
+
+dl.inline dt
+{
+    float: left;
+    clear: left;
+    width: 10ex;
+}
+
+dl.inline dt:after
+{
+    content: ":";
+}
+
+dl.faq dt
+{
+    font-style: italic;
+    padding-bottom: 0.75em;
+}
+
+dl.faq dd
+{
+    padding-bottom: 0.75em;
+}
+
+dl.faq dd:last-of-type
+{
+    padding-bottom: 0;
+}
+
+img
+{
+    border: none;
+}
+
+ul.image-list
+{
+    list-style-type: none;
+}
+
+ol.spaced li:not(:last-child)
+{
+    margin-bottom: 0.75em;
+}
+
+ol.spaced li
+{
+    padding-left: 0.5em;
+}
+
+ul.image-list li
+{
+    margin: 5ex auto;
+    width: 100%;
+    text-align: center;
+    font-style: italic;
+}
+
+div.figure
+{
+    margin: 3ex 0 3ex 0;
+    text-align: center;
+    font-style: italic;
+    font-size: small;
+}
+
+div.figure p
+{
+    text-align: justify;
+    margin-bottom: 0;
+}
+
+pre
+{
+    line-height: 110%;
+    font-size: 120%;
+    /* overflow: hidden; */
+}
+
+table
+{
+    margin: auto;
+}
+
+thead
+{
+    text-align: center;
+}
+
+td, th
+{
+    padding: 0.5ex;
+}
+
+tbody.data td
+{
+    font-family: sans;
+    font-size: small;
+    text-align: right;
+}

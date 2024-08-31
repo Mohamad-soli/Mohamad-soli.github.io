@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>One Color LIF Method for Temperature Measurement</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" type="text/css" charset="utf-8" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+<h1>One Color LIF Method for Temperature Measurement</h1>
+
+<h2>Introduction</h2>
+<p>
+In this project, we used the one-color Laser-Induced Fluorescence (LIF) method to calculate the temperature of a fluid. This method leverages the fluorescent properties of certain particles, which, when excited by laser light at a specific wavelength, emit radiation in a particular range of electromagnetic waves. The intensity of this emitted light is dependent on temperature, allowing us to determine the fluid's temperature. This temperature dependence varies across different fluorescent materials; for most, the output radiation intensity increases as the temperature decreases.
+</p>
+
+<h2>Test Theory</h2>
+<p>
+The quantum efficiency \(Q\) plays a central role in this experiment and is influenced by several parameters:
+<ul>
+    <li>\(K_{\text{spec}}\) is the intensity of fluorescent radiation received by the camera.</li>
+    <li>\(K_{\text{opt}}\) is the optical efficiency due to optical equipment.</li>
+    <li>\(\epsilon_1\) and \(\epsilon_2\) are the absorption coefficients of the fluorescent material and laser light, respectively.</li>
+    <li>\(C\) is the concentration of the fluorescent material.</li>
+    <li>\(I_0\) is the intensity of the incoming laser light.</li>
+    <li>\(b\) and \(z\) are the lengths of the paths traveled by the beam in the container and by the fluorescent radiation perpendicular to the laser sheet, respectively.</li>
+</ul>
+</p>
+<p>
+Given these parameters, the light emitted by the fluorescent materials is dependent on the temperature. This relationship is expressed by the equation:
+</p>
+<p>
+\[
+\frac{I_f}{I_{f_{\text{ref}}}} = e^{\beta\left(\frac{1}{T} - \frac{1}{T_0}\right)}
+\]
+</p>
+<p>
+where:
+<ul>
+    <li>\(I_f\) is the fluorescence intensity in the test mode.</li>
+    <li>\(I_{f_{\text{ref}}}\) is the fluorescence intensity in the reference mode.</li>
+    <li>\(\beta\) is a coefficient determined experimentally.</li>
+    <li>\(T\) and \(T_0\) are the test and reference temperatures, respectively.</li>
+</ul>
+</p>
+<p>
+When the temperature is constant but the concentration changes, the relationship is given by:
+</p>
+<p>
+\[
+\frac{I_f}{I_{f_{\text{ref}}}} = \frac{C}{C_{\text{ref}}}
+\]
+</p>
+<p>
+This method assumes a uniform concentration of fluorescent particles throughout the container and low fluctuations of laser light intensity.
+</p>
+
+<h2>Test Equipment</h2>
+<p>
+The experimental setup involved creating a light sheet in the test container using a laser and a cylindrical lens. A camera, placed perpendicular to the laser sheet, captured images of the fluorescent emissions. The fluorescent substance used was Rhodamine B, a powder dissolved in water to produce a solution of known concentration. A filter was placed on the camera to ensure only light emitted by the fluorescent particles was captured, excluding any laser light interference. All experiments were conducted in a dark room to minimize the influence of external light sources.
+</p>
+
+<h2>Description of Experiment</h2>
+<ol>
+    <li><strong>Preparation of Fluorescent Solution:</strong>
+        <ul>
+            <li>Dissolve Rhodamine particles in water.</li>
+            <li>Stir with a magnetic stirrer until the solution becomes uniform.</li>
+            <li>Determine the solution concentration, which serves as the reference concentration.</li>
+        </ul>
+    </li>
+    <li><strong>Concentration Measurement:</strong>
+        <ul>
+            <li>Inject a concentrated solution of Rhodamine into a container with a dilute solution using a syringe.</li>
+            <li>Capture images to record the fluorescent emissions.</li>
+            <li>Calculate concentration at any point using the images and reference data.</li>
+        </ul>
+    </li>
+    <li><strong>Temperature Measurement:</strong>
+        <ul>
+            <li>Stir the uniform solution with a magnetic stirrer and measure the initial temperature (26°C). Take reference images.</li>
+            <li>Heat the solution to 53°C while stirring continues to ensure uniform temperature distribution.</li>
+            <li>Capture images at both temperatures to develop a calibration curve.</li>
+            <li>Inject cold fluid into the container and take additional images to determine the temperature distribution using the calibration curve and experimental data.</li>
+        </ul>
+    </li>
+</ol>
+<p>
+By analyzing these images and employing the calibration curve, we accurately mapped the temperature distribution within the fluid.
+</p>
+
+<h2>Results</h2>
+<h3>Temperature Contour Visualization</h3>
+<p>
+To illustrate the results of our temperature measurements, we generated a contour map showing the temperature distribution within the fluid. This visualization provides a detailed view of how the temperature varies throughout the test container.
+</p>
+<div class="figure">
+    <img width="400" height="300" src="/assets/img/posts/projects/lif_1.png" alt="Calculation of temperature by linear calibration (degrees Celsius)" width="600" height="400" />
+    <p>Figure 1: Calculation of temperature by linear calibration (degrees Celsius)</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Gaussian Process</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/gp/styles/blogs.css" type="text/css" charset="utf-8" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "all" } }
+      });
+    </script>
+</head>
+<body>
+<h1>Gaussian Process</h1>
+<h2>Introduction to Gaussian Process</h2>
+<p>
+    Gaussian Process (GP) surrogate models approximate the behavior of the objective function based on a limited set of function evaluations. 
+    GP modeling optimization is used for handling optimization due to its versatility and efficacy. A Gaussian process is a nonparametric model 
+    with uncertainty predictions, providing an estimation of the variance along with the prediction.
+</p>
+<p>
+    In general, a GP model can be expressed as:
+    \[
+    f(x) = \text{GP}\left(m(x), k(x,x')\right) \tag{1}
+    \]
+    where \(m(x)\) represents the mean function, which can be expressed as:
+    \[
+    m(x) = h(x)\beta \tag{2}
+    \]
+    Here, \(h(x)\) and \(\beta\) are the regression function and coefficient vector, respectively. The expression \(k(x,x')\) represents the variance 
+    function at design point \(x\) and sample point \(x'\). The roughness parameters \(\theta_0, \theta_1, \ldots, \theta_j\) and the Gaussian kernel function 
+    \(R(x-x')\) are given by:
+    \[
+    k(x,x') = \sigma^2 R(x-x') = \sigma^2 \exp\left(-\sum_{j=1}^u \theta_j \left(x_j - x_j'\right)^2\right) \tag{3}
+    \]
+</p>
+<p>
+    The likelihood of the estimated mean function is expressed below, where \(\beta, \sigma^2, \theta\) are hyper-parameters. The goal is to maximize the log-likelihood of the parameters.
+    \[
+    P(y | \beta, \sigma^2, \theta) = \frac{1}{(2\pi\sigma^2)^{N/2} |R|^{1/2}} \exp\left(-\frac{1}{2\sigma^2} (y - H\beta)^T R^{-1} (y - H\beta)\right) \tag{4}
+    \]
+</p>
+<p>
+    By calculating the partial derivative of the previous equation and setting its value to 0, the maximum likelihood of estimated functions is calculated.
+</p>
+<p>
+    The purpose of establishing a GP model is to predict the output response \(f_p(x_p)\) at design points \(x_p\). The considered output must 
+    respond \(f_o(x_o)\) at input sample points \(x_o\). The prediction can be calculated by considering a joint distribution over the function values of 
+    \(x_o\) and \(x_p\), denoted by \(f_o\) and \(f_p(x_p)\) respectively.
+</p>
+<div class="figure">
+    <img width="400" height="300" alt="Gaussian Process Illustration"
+    src="./figs/gp_illustration.png" />
+    <p>Figure 1: An Illustration of Gaussian Process</p>
+  </div>
+</body>
+</html>

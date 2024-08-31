@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Learn JAX</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/blogs.css" type="text/css" charset="utf-8" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+<h1>JAX Tutorials</h1>
+<h2>JAX Tutorial by the Engineers at DeepMind</h2>
+<p>
+    <ul>
+        <li>Link to that: <a href="https://jax.readthedocs.io/en/latest/jax-101/index.html">JAX 101</a></li>
+        <li>JAX as the accelerated Numpy</li>
+    </ul>
+</p>
+<!-- <div class="figure">
+    <img width="437" height="355" alt="figure of inventors of BFGS"
+    src="./bfgs.jpeg" />
+    <p>Figure 1: Broyden, Fletcher, Goldfarb and Shanno from left to right.</p>
+</div> -->
+<h2>JAX as the accelerated Numpy</h2>
+<ul>
+    <li>It says it would work seemlessly with CPU, GPU and TPU so lets try and compare them on google colab</li>
+</ul>
+<h3>Test 1. Dot Operation</h3>
+<ul>
+    <li>As the example in the tutorial suggested, a vector with length of 1e7 was dotted into it self and magic %timeit was used to measure the runtime.</li>
+    <ul>
+        <li>On CPU: 8.36 ms</li>
+        <li>On TPU: 10.7 ms</li>
+        <li>On GPU: 283 us</li>
+    </ul>
+    <li>As we can see, the GPU is 30 times faster than the CPU and 37 times faster than the TPU.</li>
+    <li>The question is why TPU then?</li>
+    <li>Well, the TPU is a special kind of accelerator that is designed to be used in a distributed manner.</li>
+    <li>Lets try another more interesting test</li>
+    <!-- <li><a href="https://colab.research.google.com/github/google/jax/blob/main/cloud_tpu_colabs/Lorentz_ODE_Solver.ipynb#scrollTo=ReFcuyaKAxh4">There is this beautiful test</a> on solving Lorentz equation on TPU using JAX That I will try </li> -->
+</ul>
+<h3>Test 2. Using Lattice Boltzmann method to simulate flow ove a cylinder</h3>
+<ul>
+    <li>Lattice Boltzmann is a method of simulation that instead of solving the pde inside the whole domain, it simulates individual particles very similar to <a href="https://github.com/erfanhamdi/cphy_problems/">cellular automatas</a> that I implemented before</li>
+    <li>Flow over cylinder is a frequently used case for validating the simulation methods. Here we will implement an LBM method for it to see how it works as well as a small study on the runtime</li>
+</ul>
+<!-- Here we are going to use an implementation of L-BFGS in PyTorch to minimize the Rosenbrock function.
+<h3>What is Rosenbrock function?</h3>
+<p><a href="https://en.wikipedia.org/wiki/Rosenbrock_function">Rosenbrock function</a> is a non-convex function which its' global minima is
+    inside a long narrow valley which is trivial to find, but converging to 
+    the global minima inside that valley is a difficault task.
+    \[f(x,y) = b(y-x^2)^2 + (a-x)^2\]
+    where \(a\) and \(b\) are constants.
+    The global minima is at \((a,a^2)\).
+    It is mostly used as a <a href="https://en.wikipedia.org/wiki/Test_functions_for_optimization">benchmark for optimization algorithms</a>.
+</p>
+<div class="figure">
+    <img width="437" height="355" alt="a contour plot of the Rosenbrock function"
+    src="./rosenbrock.png" />
+    <p>Figure 2: Rosenbrock function</p>
+  </div>
+<h3>What is a closure function?</h3>
+<p>
+    Some Optimizers in PyTorch such as Conjugate Gradient and LBFGS require a closure function to be passed to them.
+    A closure function is a function that at first clears the gradients,
+    computes the loss, 
+    and reevaluates the function.
+</p>
+<pre>
+    <code>
+        def closure():
+            optimizer.zero_grad()
+            loss.backward()
+            return loss.item()
+    </code>
+</pre>
+<h3>Define a custom function in PyTorch</h3>
+<p>In order to be able to use the optimizers implemented in pytorch to 
+    minimize a function, we have to redefine that function as a class like 
+    we do for different Neural Networks in PyTorch.
+    <pre>
+        <code>
+class Rosenbrock(nn.Module):
+    def __init__(self, a, b):
+        super(Rosenbrock, self).__init__()
+        # Initializing the Rosenbrock function
+        self.a = a
+        self.b = b
+        # Optimization parameters are randomly initialized and
+        # defined to be a nn.Parameter object.
+        self.x = torch.nn.Parameter(torch.Tensor([-1.0]))
+        self.y = torch.nn.Parameter(torch.Tensor([2.0]))
+
+    def forward(self,):
+        # Here is the function that is being optimized
+        return (self.x - self.a) ** 2 + self.b * (self.y - self.x ** 2) ** 2
+        </code>
+    </pre>
+    Note the difference between how we define constants and optimization variables.
+    Then the optimizer can be initialized like this:
+    <pre>
+        <code>
+optimizer = torch.optim.LBFGS(model.parameters(), lr=0.1, max_iter=5000)
+        </code>
+    </pre>
+Here is the gif of the convergence steps:
+    <div class="figure">
+        <img width="437" height="355" alt="convergence animation"
+        src="./convergence.gif" />
+        <p>Figure 3: Convergence Steps (wait for it)</p>
+      </div> 
+you can find all the related codes inside this <a href="https://github.com/erfanhamdi/erfanhamdi.github.io/blob/main/blog_posts/l-bfgs/l-bfgs.py">github repository</a>.
+</p> -->
+</body>
+</html>

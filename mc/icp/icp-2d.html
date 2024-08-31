@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Iterative Closest Point</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/blogs.css" type="text/css" charset="utf-8" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+<h1>Iterative Closest Point - ICP</h1>
+<h2>Dataset</h2>
+<p>
+    <ul>
+        <li>We first create two sets of toy dataset.</li>
+        <li>We will call the first set of points the base points and will generate them using the latin hypercube sampling method</li>
+        <div class="figure">
+            <img width="437" height="355" alt="figure of inventors of BFGS"
+            src="./figures/reference_points.png" />
+            <p>Figure 1: set of base point.</p>
+        </div>
+          <li>As you can see there are no two points in a row or a column.</li>
+          <li>Then we define 2 functions for Rotation and Translation and apply that to the base point to get a second set of points.</li>
+          <div class="figure">
+            <img width="437" height="355" alt="figure of inventors of BFGS"
+            src="./figures/source_points.png" />
+            <p>Figure 2: both sets of points.</p>
+          </div>
+    </ul>
+</p>
+<h2>What are we going to do?</h2>
+<p>
+    <ul>
+        <li>Now we are going to find the transformation that mapped base points (reference point sets) to the second transformed set of points aka. source point set.</li>
+        <li>In order to do that we have to find a first estimate of a pair of points and the transformation between them.</li>
+        <li>A good way to initialize our guess is to find the closest point to each point in the reference point set.</li>
+        <li>After finding the closest point, we have to calculate the transformation that can map the point in reference set to that closest point of last step.</li>
+        <li>In order to do that we have to first formulate the problem into a least square minimization problem because it has many robust and fast methods to solve and is easier too!</li>
+    </ul>
+</p>
+<h2>Least Square Problem</h2>
+<p>
+        Assume that we have two point sets {p_i} and {p'_i}
+        \[p'_i = R p_i + T\]
+        where R is a 3x3 rotation matrix and T is a 3x1 translation vector.
+        we can formulate a minimization problem to find \(R\) and \(T\) as follows:
+        \[\min_{R,T} \sum_{i=1}^{n} \|p'_i - R p_i - T\|^2\]
+        If the solution to the least square problem is \(\hat{R}\) and \(\hat{T}\), then the centroid of point set {p"_i} and 
+        {p_i} are the same.
+        \[p"_i = \hat{R} p_i + \hat{T}\]
+        If we name the centroids of the two point sets as \(p_c\) and \(p'_c\), then we can translate the centroid of all the pointsets 
+        to the origin and then the points would be like this:
+        \[q_i = p_i - p_c\]
+        \[q'_i = p'_i - p'_c\]
+        now the original minimization problem is formulated as a least square problem:
+        \[\min_{R,T} \sum_{i=1}^{n} \|q'_i - R q_i\|^2\]
+        Then all we have to do is to find \(R\) by solving the above least square problem using SVD decomposition
+        and then we can simply find \(T\) by putting the \(R\) into this equation:
+        \[\hat{T} = p' - \hat{R}p\]
+        In order to do that we first define the matrix H like this:
+        \[H = q_i\dot q'_i\]
+        Then we can find the SVD decomposition of H like this:
+        \[H = U S V^T\]
+        Then we get \(X\) to be:
+        \[X = VU^T\]
+        Then we have to calculate the determinant of X; if it was +1 then \(X\) is the rotation matrix we have been looking for! 
+        if it was -1 then the algorithm has failed which is not so likely to happen.
+</p>
+<h2>Results</h2>
+<p>
+    <ul>
+        <li>Here you can see the trajectory of the transformation for each point</li>
+        <div class="figure">
+            <img width="437" height="355" alt="figure of inventors of BFGS"
+            src="./figures/transition.png" />
+            <p>Figure 3: trajectory of transformation.</p>
+        </div>
+    </ul>
+</p>
+<p>you can find an implementation of it in my <a href="https://github.com/erfanhamdi/erfanhamdi.github.io/blob/main/blog_posts/icp/icp_main.py">github repository</a> along with all the figures.</p>
+
+</body>
+</html>

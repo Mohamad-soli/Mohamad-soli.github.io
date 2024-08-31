@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Novel Geometry for Separating CTCs</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/mc/styles/blogs.css" type="text/css" charset="utf-8" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+<h1>Novel Geometry for Separating Circulating Tumor Cells (CTCs) from Blood Samples</h1>
+
+<h2>Introduction</h2>
+<p>
+    In this research, we present a novel microfluidic device designed for the passive separation of circulating tumor cells (CTCs) from blood samples. The separation of CTCs is critical for understanding cancer progression and enhancing early diagnosis, as these cells play a pivotal role in metastasis and disease spread. Traditional methods for CTC separation can be categorized into active and passive techniques. Active methods employ external forces such as electrical, magnetic, acoustic, and optical forces, while passive methods rely on channel geometry and fluid dynamics to achieve separation. Passive separation is particularly appealing for its simplicity and potential for miniaturization, making it suitable for lab-on-a-chip applications.
+</p>
+
+<h2>Numerical Method</h2>
+
+<h3>Governing Equations and Simulation</h3>
+<p>
+    Fluid dynamics within the microfluidic channel were modeled using the Navier-Stokes equations, considering the fluid as incompressible and Newtonian. A three-dimensional finite element method (FEM) was employed to solve the equations governing fluid flow and particle motion. In modeling inertial forces, we considered drag and wall-induced forces, which cause lift forces. The relevant equations are:
+</p>
+
+<h3>Drag Force (Stokes Law)</h3>
+<p>
+    \[
+    F_D = \frac{1}{\tau_p} m_p (u-v) \tag{1}
+    \]
+
+    \[
+    \tau_p = \frac{\rho_p d_p^2}{18\mu} \tag{2}
+    \]
+</p>
+
+<h3>Lift Force</h3>
+<p>
+    \[
+    F_L = \rho r_p^2 D^2 \left( \beta \beta G_{1s} + \gamma G_{2sn} \right) \tag{3}
+    \]
+
+    \[
+    \beta = D(n \cdot \nabla) u_{\parallel} \tag{4}
+    \]
+
+    \[
+    \gamma = \frac{D^2}{2} (n \cdot \nabla)^2 u_{\parallel} \tag{5}
+    \]
+
+    \[
+    u_{\parallel} = l-n \otimes n u \tag{6}
+    \]
+
+    Where:
+    <ul>
+        <li>\( s \) is the normalized distance to the first parallel boundary.</li>
+        <li>\( n \) is the unit vector from the nearest point on the first parallel boundary.</li>
+        <li>\( D \) is the distance between the walls.</li>
+    </ul>
+</p>
+
+<h2>Results</h2>
+<p>
+    The design successfully separated CTCs from RBCs and WBCs, demonstrating the effectiveness of inertial forces in CTC separation.
+</p>
+
+<h2>Conclusion</h2>
+<p>
+    This novel microfluidic device offers a promising approach for passive separation of CTCs, with potential applications in cancer diagnostics and research. The integration of inertial forces in the design enhances separation efficiency, providing a basis for further optimization and development.
+</p>
+
+<div class="figure">
+    <img width="400" height="300" alt="Diagram of Particles at the inlet"
+    src="/assets/img/posts/projects/inlet.png" />
+    <p>Figure 1: Diagram of Microchannel Particles Inlet </p>
+  </div>
+
+  <div class="figure">
+    <img width="400" height="300" alt="Diagram of a bifurcation before the outlet"
+    src="/assets/img/posts/projects/bifurcation.png" />
+    <p>Figure 1: Diagram of a bifurcation before the outlet</p>
+  </div>
+
+  <div class="figure">
+    <img width="400" height="300" alt="Diagram of the outlet"
+    src="/assets/img/posts/projects/outlet.png" />
+    <p>Figure 1: Diagram of the outlet</p>
+  </div>
+</body>
+</html>
